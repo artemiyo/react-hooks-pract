@@ -6,6 +6,7 @@ import "./index.css";
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  
   return (
     <ThemeContext.Provider value={isDark ? themes.dark : themes.light}>
       <div
