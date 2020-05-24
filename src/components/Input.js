@@ -7,15 +7,14 @@ const Input = (props) => {
   return (
     <>
       <input
-        // ref={ref}
         type={props.type}
         placeholder={props.placeholder}
         onChange={props.onChange}
         name={props.name}
-        // onKeyDown={props.onKeyDown}
       />
       <p>
-        Input component was rerendered {componentRerenderedTimes.current} times
+        Компоненты "Input" перерисовывается {componentRerenderedTimes.current}{" "}
+        раз
       </p>
     </>
   );

@@ -19,12 +19,13 @@ const Counter = (props) => {
     <div
       style={{ display: "flex", flexDirection: "column", marginTop: "20px" }}
     >
+      <h1>useMemo</h1>
       <Button onClick={incrementFirst}>
-        Increase First Button - {firstCount}
+        Увеличить firstCount - {firstCount}
       </Button>
-      <span>{isEven ? " Even" : " Odd"}</span>
+      <span>{isEven ? " Четное" : " Нечетное"}</span>
       <Button onClick={incrementSecond}>
-        Increase Second Button - {secondCount}
+        Увеличить secondCount - {secondCount}
       </Button>
     </div>
   );

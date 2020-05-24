@@ -24,30 +24,31 @@ function App() {
         }}
         className="app"
       >
+        <h1>useState, useEffect, useRef</h1>
         <div>
           <Button onClick={openPopup}>
-            {isPopupOpen ? "Close Popup" : "Open Popup"}
+            {isPopupOpen ? "Открыть попап" : "Закрыть попап"}
           </Button>
           <Button onClick={setDarkTheme}>
-            {isDark ? "Set Light Theme" : "SetDarkTheme"}
+            {isDark ? "Светлая тема" : "Темная тема"}
           </Button>
         </div>
         <Counter />
         {isPopupOpen && <Popup />}
         <div>
+          <h1>useCallback</h1>
           <Input
             onChange={useCallback((e) => setTitle(e.target.value), [])}
             type="text"
             placeholder="Title"
           />
-          <p>Input value is: {title}</p>
+          <p>Значение: {title}</p>
           <Input
             onChange={(e) => setBody(e.target.value)}
             type="text"
             placeholder="Description"
           />
-          <p>Input value is: {body}</p>
-          <Button>Submit</Button>
+          <p>Значение: {body}</p>
         </div>
       </div>
     </ThemeContext.Provider>
