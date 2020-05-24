@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Popup from "./components/Popup";
 import { themes, ThemeContext } from "./context";
 import "./index.css";
+import Counter from "./components/Counter";
+import Button from "./components/Button";
+import Input from "./components/Input";
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  
+  const [title, setTitle] = useState();
+  const [body, setBody] = useState();
+
+  const openPopup = () => setIsPopupOpen(!isPopupOpen);
+  const setDarkTheme = () => setIsDark(!isDark);
+
   return (
     <ThemeContext.Provider value={isDark ? themes.dark : themes.light}>
       <div
@@ -17,14 +25,30 @@ function App() {
         className="app"
       >
         <div>
-          <button onClick={() => setIsPopupOpen(!isPopupOpen)}>
+          <Button onClick={openPopup}>
             {isPopupOpen ? "Close Popup" : "Open Popup"}
-          </button>
-          <button onClick={() => setIsDark(!isDark)}>
+          </Button>
+          <Button onClick={setDarkTheme}>
             {isDark ? "Set Light Theme" : "SetDarkTheme"}
-          </button>
+          </Button>
         </div>
+        <Counter />
         {isPopupOpen && <Popup />}
+        <div>
+          <Input
+            onChange={useCallback((e) => setTitle(e.target.value), [])}
+            type="text"
+            placeholder="Title"
+          />
+          <p>Input value is: {title}</p>
+          <Input
+            onChange={(e) => setBody(e.target.value)}
+            type="text"
+            placeholder="Description"
+          />
+          <p>Input value is: {body}</p>
+          <Button>Submit</Button>
+        </div>
       </div>
     </ThemeContext.Provider>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 
 const Todos = ({ isLoading, posts }) => {
+  console.log("TODOS")
   return (
     <ul>
       {isLoading ? (
@@ -19,4 +20,4 @@ const Todos = ({ isLoading, posts }) => {
   );
 };
 
-export default Todos;
+export default React.memo(Todos);
